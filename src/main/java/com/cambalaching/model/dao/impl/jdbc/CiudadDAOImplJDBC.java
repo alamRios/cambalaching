@@ -29,10 +29,7 @@ public class CiudadDAOImplJDBC implements CiudadDAO{
         ResultSet rs = null; 
         List<SelectItem> list = new ArrayList<SelectItem>(); 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_OBTENER_CIUDADES_DDL);
 

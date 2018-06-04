@@ -31,10 +31,7 @@ public class UserDAOImplJDBC implements UserDAO{
         PreparedStatement st = null; 
         ResultSet rs = null; 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_LOGIN);
             st.setString(1,user_mail);
@@ -67,10 +64,7 @@ public class UserDAOImplJDBC implements UserDAO{
         PreparedStatement st = null; 
         ResultSet rs = null; 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_REGISTRAR_CLIENTE);
             st.setString(1,clienteNuevo.getNombre());

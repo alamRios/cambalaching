@@ -148,10 +148,7 @@ public class ArticuloDAOImplJDBC implements ArticuloDAO{
         Connection conn = null; 
         PreparedStatement st = null; 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_REGISTRAR_ARTICULO);
             st.setInt(1,articulo.getCliente());
@@ -215,10 +212,7 @@ public class ArticuloDAOImplJDBC implements ArticuloDAO{
         ResultSet rs = null; 
         List<ArticuloDTO> list = new ArrayList<>(); 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_OBTENER_ARTICULOS_POR_APROBAR);
             rs = st.executeQuery();
@@ -265,10 +259,7 @@ public class ArticuloDAOImplJDBC implements ArticuloDAO{
         Connection conn = null; 
         PreparedStatement st = null; 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_APROBAR_ARTICULO_POR_ID);
             st.setInt(1,articuloSeleccionado.getId());
@@ -293,10 +284,7 @@ public class ArticuloDAOImplJDBC implements ArticuloDAO{
         Connection conn = null; 
         PreparedStatement st = null; 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_ELIMINAR_ARTICULO_POR_ID);
             st.setInt(1,articulo.getId());
@@ -323,10 +311,7 @@ public class ArticuloDAOImplJDBC implements ArticuloDAO{
         ResultSet rs = null; 
         List<ArticuloDTO> list = new ArrayList<>(); 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_OBTENER_ARTICULOS_APROBADOS);
             st.setInt(1, idcliente);
@@ -379,10 +364,7 @@ public class ArticuloDAOImplJDBC implements ArticuloDAO{
         ResultSet rs = null; 
         List<ArticuloDTO> list = new ArrayList<>(); 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_OBTENER_TODOS_ARTICULOS_APROBADOS);
             st.setInt(1, idcliente);
@@ -434,10 +416,7 @@ public class ArticuloDAOImplJDBC implements ArticuloDAO{
         PreparedStatement st = null; 
         ResultSet rs = null; 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_OBTENER_ARTICULO_POR_ID);
             st.setInt(1, idarticulo);

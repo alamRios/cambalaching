@@ -52,7 +52,7 @@ public class IntercambioDAOImplJDBC implements IntercambioDAO{
             String driver = "com.mysql.jdbc.Driver";
             String dburl = "jdbc:mysql://localhost/cambalachingdb";
             Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = DriverManager.getConnection(dburl, "root", "root");
 
             st = conn.prepareStatement(SQL_REGISTRAR_INTERCAMBIO);
             st.setInt(1,articuloOfrecido.getCliente());
@@ -99,10 +99,7 @@ public class IntercambioDAOImplJDBC implements IntercambioDAO{
         ResultSet rs = null; 
         List<IntercambioDTO> list = new ArrayList<>(); 
         try{
-            String driver = "com.mysql.jdbc.Driver";
-            String dburl = "jdbc:mysql://localhost/cambalachingdb";
-            Class.forName(driver);
-            conn = DriverManager.getConnection(dburl, "root", "");
+            conn = Conection.obtenerConeccion(); 
 
             st = conn.prepareStatement(SQL_OBTENER_INTERCAMBIOS_EN_PROCESO);
             rs = st.executeQuery();
